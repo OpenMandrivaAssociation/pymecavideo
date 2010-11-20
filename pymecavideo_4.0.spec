@@ -1,6 +1,6 @@
 %define name	pymecavideo
 %define version	4.0
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define title	pymecavideo
 
 Name:		%{name} 
