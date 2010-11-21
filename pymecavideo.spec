@@ -76,8 +76,7 @@ rm -rf %{buildroot}
 
 %files
 %{_bindir}/pymecavideo
-%{python_sitelib}/%{name}
-%{python_sitelib}/%{name}-*.egg-info
+%{python_sitelib}/%{name}*
 #%{_datadir}/applications/%{name}.desktop 
 %{_datadir}/icons/%{name}.*
 %{_datadir}/icons/*/%{name}.*
