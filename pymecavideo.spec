@@ -30,7 +30,8 @@ pymecavideo permet de tracer point par point la trajectoire de point ainsi que c
 %setup -q -n %version
 
 %build 
-make
+#make
+python setup.py build
 
 %install
 rm -rf %{buildroot}
@@ -48,17 +49,15 @@ mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_liconsdir}
 mkdir -p %{buildroot}%{_iconsdir}
 mkdir -p %{buildroot}%{_miconsdir}
-cp icones/%{name}-48.png %{buildroot}%{_iconsdir}/%{name}.png
-cp pymecavideo.svg %{buildroot}%{_iconsdir}/
+cp data/icones/%{name}-48.png %{buildroot}%{_iconsdir}/%{name}.png
+cp data/icones/%{name}-48.png %{buildroot}%{_miconsdir}/%{name}.png
+cp data/icones/%{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
+cp data/icones/pymecavideo.svg %{buildroot}%{_iconsdir}/
 mkdir %{buildroot}%py_platsitedir/%{name}/help/
-cp help/* %{buildroot}%py_platsitedir/%{name}/help/
+cp data/help/* %{buildroot}%py_platsitedir/%{name}/help/
 
-cp %{buildroot}%py_platsitedir/%{name}/icones/%{name}-48.png %{buildroot}%{_miconsdir}/%{name}.png
-
-cp %{buildroot}%py_platsitedir/%{name}/icones/%{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
-
-mkdir -p %{buildroot}%{_datadir}/applications
-cp pymecavideo.desktop %{buildroot}%{_datadir}/applications
+#mkdir -p %{buildroot}%{_datadir}/applications
+#cp pymecavideo.desktop %{buildroot}%{_datadir}/applications
 
 #help
 mkdir -p %{buildroot}/%_docdir/HTML/fr/pymecavideo/
@@ -78,9 +77,11 @@ rm -rf %{buildroot}
 %files
 %{_bindir}/pymecavideo
 %{python_sitelib}/%{name}
-%{_datadir}/applications/%{name}.desktop 
+%{python_sitelib}/%{name}-*.egg-info
+#%{_datadir}/applications/%{name}.desktop 
 %{_datadir}/icons/%{name}.*
 %{_datadir}/icons/*/%{name}.*
+%{_docdir}/HTML/fr/%{name}
 
 #%{_libdir}
 
