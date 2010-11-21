@@ -1,6 +1,6 @@
 %define name	pymecavideo
-%define version	4.0
-%define release	%mkrel 3
+%define version	5.2
+%define release	%mkrel 1
 %define title	pymecavideo
 
 Name:		%{name} 
@@ -76,11 +76,12 @@ chmod a+x %{buildroot}%{_bindir}/%{name}
 rm -rf %{buildroot} 
 
 %files
-%{_bindir}
-%{_libdir}
-#%{_liconsdir}
-#%{_iconsdir}
-#%{_miconsdir}
-%{_datadir}
-#%{_prefix}/*
+%{_bindir}/pymecavideo
+%{python_sitelib}/%{name}
+%{_datadir}/applications/%{name}.desktop 
+%{_datadir}/icons/%{name}.*
+%{_datadir}/icons/*/%{name}.*
+
+#%{_libdir}
+
 %defattr(-, root, root,755)
