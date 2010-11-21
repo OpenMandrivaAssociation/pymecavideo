@@ -1,6 +1,6 @@
 %define name	pymecavideo
 %define version	4.0
-%define release	%mkrel 2
+%define release	%mkrel 3
 %define title	pymecavideo
 
 Name:		%{name} 
@@ -39,7 +39,7 @@ mkdir -p %{buildroot}%{_prefix}
 mkdir -p %{buildroot}%{_libdir}
 
 #python setup.py install --root %{buildroot}
-python setup.py install --prefix=%{buildroot}%{_prefix} --install-lib=%{buildroot}%{_libdir}/python2.6/site-packages
+python setup.py install --prefix=%{buildroot}%{_prefix} --install-lib=%{buildroot}%py_platsitedir
 
 #cp -Rp * %{buildroot}
 
@@ -50,25 +50,25 @@ mkdir -p %{buildroot}%{_iconsdir}
 mkdir -p %{buildroot}%{_miconsdir}
 cp icones/%{name}-48.png %{buildroot}%{_iconsdir}/%{name}.png
 cp pymecavideo.svg %{buildroot}%{_iconsdir}/
-mkdir %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/help/
-cp help/* %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/help/
+mkdir %{buildroot}%py_platsitedir/%{name}/help/
+cp help/* %{buildroot}%py_platsitedir/%{name}/help/
 
-cp %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/icones/%{name}-48.png %{buildroot}%{_miconsdir}/%{name}.png
+cp %{buildroot}%py_platsitedir/%{name}/icones/%{name}-48.png %{buildroot}%{_miconsdir}/%{name}.png
 
-cp %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/icones/%{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
+cp %{buildroot}%py_platsitedir/%{name}/icones/%{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cp pymecavideo.desktop %{buildroot}%{_datadir}/applications
 
 #help
 mkdir -p %{buildroot}/%_docdir/HTML/fr/pymecavideo/
-cp -r %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/help/*.png %{buildroot}/%_docdir/HTML/fr/pymecavideo/
-cp -r %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/help/*.css %{buildroot}/%_docdir/HTML/fr/pymecavideo/
-cp -r %{buildroot}%{_libdir}/python2.6/site-packages/%{name}/help/help-fr.* %{buildroot}/%_docdir/HTML/fr/pymecavideo/
+cp -r %{buildroot}%py_platsitedir/%{name}/help/*.png %{buildroot}/%_docdir/HTML/fr/pymecavideo/
+cp -r %{buildroot}%py_platsitedir/%{name}/help/*.css %{buildroot}/%_docdir/HTML/fr/pymecavideo/
+cp -r %{buildroot}%py_platsitedir/%{name}/help/help-fr.* %{buildroot}/%_docdir/HTML/fr/pymecavideo/
 
 cat > %{buildroot}%{_bindir}/%{name} << EOF
 #!/bin/bash
-python %{_libdir}/python2.6/site-packages/pymecavideo/__init__.py
+python %py_platsitedir/pymecavideo/__init__.py
 EOF
 
 chmod a+x %{buildroot}%{_bindir}/%{name}
