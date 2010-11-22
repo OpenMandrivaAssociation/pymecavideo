@@ -12,9 +12,9 @@ Source:		%{name}-%{version}.tar.gz
 URL:		http://outilsphysiques.tuxfamily.org/pmwiki.php/Oppl/Pymecavideo
 Group:		Sciences/Physics
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
-BuildRequires:  libqt4-devel
-BuildRequires:  python-devel
+Buildrequires:	python
+Obsoletes:	%{name} < %{version}
+BuildArch:	noarch
 Requires:	python-qt4
 Requires:       ffmpeg
 Requires:	vlc
@@ -40,7 +40,7 @@ mkdir -p %{buildroot}%{_prefix}
 mkdir -p %{buildroot}%{_libdir}
 
 #python setup.py install --root %{buildroot}
-python setup.py install --prefix=%{buildroot}%{_prefix} --install-lib=%{buildroot}%py_platsitedir
+python setup.py install --prefix=%{buildroot}%{_prefix}
 
 #cp -Rp * %{buildroot}
 
@@ -53,21 +53,21 @@ cp data/icones/%{name}-48.png %{buildroot}%{_iconsdir}/%{name}.png
 cp data/icones/%{name}-48.png %{buildroot}%{_miconsdir}/%{name}.png
 cp data/icones/%{name}-48.png %{buildroot}%{_liconsdir}/%{name}.png
 cp data/icones/pymecavideo.svg %{buildroot}%{_iconsdir}/
-mkdir %{buildroot}%py_platsitedir/%{name}/help/
-cp data/help/* %{buildroot}%py_platsitedir/%{name}/help/
+mkdir %{buildroot}%py_puresitedir/%{name}/help/
+cp data/help/* %{buildroot}%py_puresitedir/%{name}/help/
 
 #mkdir -p %{buildroot}%{_datadir}/applications
 #cp pymecavideo.desktop %{buildroot}%{_datadir}/applications
 
 #help
 mkdir -p %{buildroot}/%_docdir/HTML/fr/pymecavideo/
-cp -r %{buildroot}%py_platsitedir/%{name}/help/*.png %{buildroot}/%_docdir/HTML/fr/pymecavideo/
-cp -r %{buildroot}%py_platsitedir/%{name}/help/*.css %{buildroot}/%_docdir/HTML/fr/pymecavideo/
-cp -r %{buildroot}%py_platsitedir/%{name}/help/help-fr.* %{buildroot}/%_docdir/HTML/fr/pymecavideo/
+cp -r %{buildroot}%py_puresitedir/%{name}/help/*.png %{buildroot}/%_docdir/HTML/fr/pymecavideo/
+cp -r %{buildroot}%py_puresitedir/%{name}/help/*.css %{buildroot}/%_docdir/HTML/fr/pymecavideo/
+cp -r %{buildroot}%py_puresitedir/%{name}/help/help-fr.* %{buildroot}/%_docdir/HTML/fr/pymecavideo/
 
 cat > %{buildroot}%{_bindir}/%{name} << EOF
 #!/bin/bash
-python %py_platsitedir/pymecavideo/__init__.py
+python %py_puresitedir/pymecavideo/__init__.py
 EOF
 
 chmod a+x %{buildroot}%{_bindir}/%{name}
@@ -75,13 +75,10 @@ chmod a+x %{buildroot}%{_bindir}/%{name}
 rm -rf %{buildroot} 
 
 %files
+%defattr(-, root, root)
 %{_bindir}/pymecavideo
-%{python_sitelib}/%{name}*
+%py_puresitedir/%{name}*
 #%{_datadir}/applications/%{name}.desktop 
 %{_datadir}/icons/%{name}.*
 %{_datadir}/icons/*/%{name}.*
-%{_docdir}/HTML/fr/%{name}
-
-#%{_libdir}
-
-%defattr(-, root, root,755)
+%lang(fr) %{_docdir}/HTML/fr/%{name}
