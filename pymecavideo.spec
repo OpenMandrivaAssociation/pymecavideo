@@ -1,5 +1,5 @@
 %define name	pymecavideo
-%define version	5.2
+%define version	5.4
 %define release	%mkrel 1
 %define title	pymecavideo
 
