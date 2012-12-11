@@ -82,3 +82,32 @@ rm -rf %{buildroot}
 %{_datadir}/icons/%{name}.*
 %{_datadir}/icons/*/%{name}.*
 %lang(fr) %{_docdir}/HTML/fr/%{name}
+
+
+%changelog
+* Sat Apr 16 2011 Olivier Faurax <ofaurax@mandriva.org> 5.4-1mdv2011.0
++ Revision: 653864
+- New version 5.4
+
+* Mon Nov 22 2010 Funda Wang <fwang@mandriva.org> 5.2-1mdv2011.0
++ Revision: 599632
+- should be noarch package
+
+  + Olivier Faurax <ofaurax@mandriva.org>
+    - fix spec for new tar.gz hierarchy
+    - New version + cleanup of %%files
+
+* Sun Nov 21 2010 Funda Wang <fwang@mandriva.org> 4.0-3mdv2011.0
++ Revision: 599386
+- correct spec file name
+- fix for py2.7
+
+* Sat Nov 20 2010 Olivier Faurax <ofaurax@mandriva.org> 4.0-2mdv2011.0
++ Revision: 599266
+- rebuild
+
+* Mon Jan 11 2010 Olivier Faurax <ofaurax@mandriva.org> 4.0-1mdv2011.0
++ Revision: 489996
+- import pymecavideo
+
+
