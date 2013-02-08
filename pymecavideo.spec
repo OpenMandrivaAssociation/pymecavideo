@@ -1,6 +1,6 @@
 %define name	pymecavideo
 %define version	5.4
-%define release	%mkrel 1
+%define release	2
 %define title	pymecavideo
 
 Name:		%{name} 
@@ -24,7 +24,9 @@ License:	GPLv3
 
 
 %description
-pymecavideo permet de tracer point par point la trajectoire de point ainsi que choisir un référentiel particulier pour étudier la trajectoire dans celui-ci. Les données ainsi recueillies peuvent être exportées dans un logiciel de traitement.
+pymecavideo permet de tracer point par point la trajectoire de point ainsi que
+choisir un référentiel particulier pour étudier la trajectoire dans celui-ci.
+Les données ainsi recueillies peuvent être exportées dans un logiciel de traitement.
 
 %prep 
 %setup -q -n %version
