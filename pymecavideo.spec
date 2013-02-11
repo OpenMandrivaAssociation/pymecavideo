@@ -4,14 +4,13 @@
 %define title	pymecavideo
 
 Name:		%{name} 
-Summary:	Pymecavideo permet de tracer les trajectoires décrites par un  ou plusieurs points d'un objet en utilisant une video
+Summary:	Tracer les trajectoires décrites par un ou plusieurs points d'un objet
 Version:	%{version} 
 Release:	%{release} 
 Source:		%{name}-%{version}.tar.gz
 
 URL:		http://outilsphysiques.tuxfamily.org/pmwiki.php/Oppl/Pymecavideo
 Group:		Sciences/Physics
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Buildrequires:	python
 Obsoletes:	%{name} < %{version}
 BuildArch:	noarch
@@ -37,7 +36,6 @@ traitement.
 python setup.py build
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_prefix}
 #mkdir %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_libdir}
@@ -74,8 +72,6 @@ python %py_puresitedir/pymecavideo/__init__.py
 EOF
 
 chmod a+x %{buildroot}%{_bindir}/%{name}
-%clean 
-rm -rf %{buildroot} 
 
 %files
 %defattr(-, root, root)
