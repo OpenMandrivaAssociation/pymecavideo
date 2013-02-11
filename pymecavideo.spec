@@ -26,7 +26,8 @@ License:	GPLv3
 %description
 pymecavideo permet de tracer point par point la trajectoire de point ainsi que
 choisir un référentiel particulier pour étudier la trajectoire dans celui-ci.
-Les données ainsi recueillies peuvent être exportées dans un logiciel de traitement.
+Les données ainsi recueillies peuvent être exportées dans un logiciel de
+traitement.
 
 %prep 
 %setup -q -n %version
