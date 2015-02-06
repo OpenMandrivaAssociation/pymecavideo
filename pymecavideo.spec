@@ -3,7 +3,7 @@
 Name:		pymecavideo
 Summary:	Tracer les trajectoires décrites par un ou plusieurs points d'un objet
 Version:	5.4
-Release:	3
+Release:	4
 Source:		%{name}-%{version}.tar.gz
 
 URL:		http://outilsphysiques.tuxfamily.org/pmwiki.php/Oppl/Pymecavideo
