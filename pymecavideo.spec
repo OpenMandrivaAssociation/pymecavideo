@@ -6,7 +6,7 @@ Version:	5.4
 Release:	4
 Source:		%{name}-%{version}.tar.gz
 
-URL:		http://outilsphysiques.tuxfamily.org/pmwiki.php/Oppl/Pymecavideo
+URL:		https://outilsphysiques.tuxfamily.org/pmwiki.php/Oppl/Pymecavideo
 Group:		Sciences/Physics
 BuildRequires:	python
 BuildArch:	noarch
